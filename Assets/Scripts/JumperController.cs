@@ -33,9 +33,11 @@ public class JumperController : MonoBehaviour
 
     void UpdatePos() {
         //transform.position = positions[pos].position;
-        transform.position = positions[pos];
-        Debug.Log("move");
-        Debug.Log("pos: " + pos);
+        if (pos < 6) {
+            transform.position = positions[pos];
+            Debug.Log("move");
+            Debug.Log("pos: " + pos);
+        }
         pos++;
         StartCoroutine(Move());
     }
