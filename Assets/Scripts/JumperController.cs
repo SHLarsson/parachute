@@ -11,10 +11,13 @@ public class JumperController : MonoBehaviour
     float moveDelay = 1.0f;
     float deathDelay = 0.5f;
 
+    public GameObject boat;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        transform.position = positions[pos];
         StartCoroutine(Move());
     }
 
@@ -33,12 +36,26 @@ public class JumperController : MonoBehaviour
 
     void UpdatePos() {
         //transform.position = positions[pos].position;
-        if (pos < 6) {
-            transform.position = positions[pos];
-            Debug.Log("move");
-            Debug.Log("pos: " + pos);
-        }
         pos++;
+        if (pos < positions.Count)
+        {
+            transform.position = positions[pos];
+           // Debug.Log("move");
+            //Debug.Log("pos: " + pos);
+        }
+        else {
+            Missed();
+
+        }
         StartCoroutine(Move());
+    }
+
+    void Missed() {
+        //Debug.Log("Missed Jumper");
+        Destroy(this.gameObject);
+    }
+
+    void Saved() {
+
     }
 }

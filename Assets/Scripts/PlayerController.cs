@@ -21,13 +21,13 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) && PlayerTile < 2)
         {
             PlayerTile += 1;
-            Debug.Log(PlayerTile);
+            //Debug.Log(PlayerTile);
             UpdatePos();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && PlayerTile > 0){
             PlayerTile -= 1;
-            Debug.Log(PlayerTile);
+            //Debug.Log(PlayerTile);
             UpdatePos();
         }
 
